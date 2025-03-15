@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | CoachIQ{% endblock %}
+
+{% block content %}
+    <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+
+    <!-- Live Data Section -->
+    <div id="live-data">
+        <button 
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            hx-get="{% url 'update_dashboard' %}" 
+            hx-target="#dashboard-content"
+            hx-swap="outerHTML">
+            Refresh Data
+        </button>
+
+        <div id="dashboard-content" class="mt-4">
+            {% include "partials/something.html" %}
+        </div>
+    </div>
+{% endblock %}

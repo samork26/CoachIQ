@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from django.template.loader import get_template
+from django.template import TemplateDoesNotExist
 
-# Create your views here.
+def dashboard(request):
+    return render(request, "dashboard.html")

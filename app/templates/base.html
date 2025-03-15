@@ -1,0 +1,34 @@
+{% load static tailwind_tags %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CoachIQ{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    {% tailwind_css %}
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-100 text-gray-900">
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'dashboard' %}" class="text-lg font-semibold">CoachIQ</a>
+            <div>
+                <a href="{% url 'dashboard' %}" class="mr-4 hover:underline">Dashboard</a>
+                <a href="{% url 'about' %}" class="hover:underline">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </div>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
